@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Workshop Registration</title>
+
+</head>
+
+<body>
+
+<h1 align="center">Tech Workshop 2026</h1>
+
+<fieldset>
+
+<legend><b>Event Information</b></legend>
+
+<p><b>Date:</b> 15 March 2026</p>
+
+<p><b>Time:</b> 10:00 AM – 4:00 PM</p>
+
+<p><b>Venue:</b> College Seminar Hall</p>
+
+<p><b>Organizer:</b> Department of Computer Applications</p>
+
+</fieldset>
+
+<br>
+
+<fieldset>
+
+<legend><b>Registration Form</b></legend>
+
+<form>
+
+Full Name:<br>
+
+<input type="text" name="name" required><br><br>
+
+Email:<br>
+
+<input type="email" name="email" required><br><br>
+
+Phone Number:<br>
+
+<input type="tel" name="phone"><br><br>
+
+Gender:<br>
+
+<input type="radio" name="gender"> Male
+
+<input type="radio" name="gender"> Female
+
+<br><br>
+
+Workshop Topic:<br>
+
+<select><form>
+
+Full Name:<br>
+
+<input type="text" name="name" required><br><br>
+
+Email:<br>
+
+<input type="email" name="email" required><br><br>
+
+Phone Number:<br>
+
+<input type="tel" name="phone"><br><br>
+
+Gender:<br>
+
+<input type="radio" name="gender"> Male
+
+<input type="radio" name="gender"> Female
+
+<br><br>
+
+Workshop Topic:<br>
+
+<select>
+
+<option>HTML Basics</option>
+
+<option>CSS Fundamentals</option>
+
+<option>JavaScript Basics</option>
+
+</select>
+
+<br><br>
+
+Mode of Participation:<br>
+
+<input type="radio" name="mode"> Online
+
+<input type="radio" name="mode"> Offline
+
+<br><br>
+
+<input type="checkbox" required> I confirm the details are correct.
+
+<br><br>
+
+<input type="submit" value="Register">
+
+<input type="reset" value="Clear">
+
+</form>
+  
+  </fieldset>
+
+<hr>
+
+<p><b>Contact Email:</b> support@techevent2026.in</p>
+
+<p><b>Help Desk:</b> +91 9992933633</p>
+
+<p>&copy; 2026 Tech Workshop</p>
+
+</footer>
+
+</body>
+
+</html>
