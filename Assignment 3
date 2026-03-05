@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Event Registration</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f4f4;
+}
+
+.container{
+width:450px;
+margin:auto;
+background:white;
+padding:20px;
+border-radius:8px;
+margin-top:30px;
+}
+
+h2{
+text-align:center;
+}
+
+.event-box{
+background:#e8f0fe;
+padding:10px;
+margin-bottom:20px;
+border-radius:5px;
+}
+
+input,select{
+width:100%;
+padding:8px;
+margin:6px 0;
+border:1px solid #ccc;
+border-radius:4px;
+}
+
+button{
+width:100%;
+padding:10px;
+background:green;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:darkgreen;
+}
+
+table{
+width:80%;
+margin:30px auto;
+border-collapse:collapse;
+background:white;
+}
+
+th,td{
+border:1px solid black;
+padding:10px;
+text-align:center;
+}
+
+th{
+background:#ddd;
+}
+
+#msg{
+text-align:center;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Event Registration</h2>
+
+<div class="event-box">
+
+<h3>Event Details</h3>
+
+<p><b>Event Name:</b> Tech Workshop 2026</p>
+<p><b>Date:</b> 20 March 2026</p>
+<p><b>Venue:</b> College Auditorium</p>
+<p><b>Description:</b> This workshop introduces students to modern technologies like Web Development, Artificial Intelligence and Cyber Security.</p>
+
+</div>
+
+<p id="msg"></p>
+
+<form id="form">
+
+<label>Name</label>
+<input type="text" id="name">
+
+<label>Email</label>
+<input type="email" id="email">
+
+<label>Phone</label>
+<input type="text" id="phone">
+
+<label>Select Event</label>
+<select id="event">
+<option value="">Choose Event</option>
+<option>Web Development</option>
+<option>Artificial Intelligence</option>
+<option>Cyber Security</option>
+</select>
+
+<input type="checkbox" id="check">
+I confirm that the information is correct
+
+<br><br>
+
+<button type="submit">Register</button>
+
+</form>
+
+</div>
+
+<h2 style="text-align:center">Registered Participants</h2>
+
+<table id="table">
+
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Phone</th>
+<th>Event</th>
+</tr>
+
+</table>
+
+<script>
+
+document.getElementById("form").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+let name=document.getElementById("name").value;
+let email=document.getElementById("email").value;
+let phone=document.getElementById("phone").value;
+let event=document.getElementById("event").value;
+let check=document.getElementById("check").checked;
+
+let msg=document.getElementById("msg");
+
+if(name=="" || email=="" || phone=="" || event=="")
+{
+msg.innerHTML="Please fill all fields";
+msg.style.color="red";
+return;
+}
+
+if(!check)
+{
+msg.innerHTML="Please confirm the declaration";
+msg.style.color="red";
+return;
+}
+
+let table=document.getElementById("table");
+
+let row=table.insertRow();
+
+row.insertCell(0).innerHTML=name;
+row.insertCell(1).innerHTML=email;
+row.insertCell(2).innerHTML=phone;
+row.insertCell(3).innerHTML=event;
+
+msg.innerHTML="Registration Successful!";
+msg.style.color="green";
+
+setTimeout(function(){
+msg.innerHTML="";
+},3000);
+
+document.getElementById("form").reset();
+
+});
+
+</script>
+
+</body>
+</html>
