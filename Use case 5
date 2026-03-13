@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Online Quiz Application</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+background: linear-gradient(135deg,#667eea,#764ba2);
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+margin:0;
+}
+
+.quiz-container{
+background:white;
+padding:30px;
+border-radius:10px;
+width:400px;
+box-shadow:0 8px 20px rgba(0,0,0,0.2);
+text-align:center;
+}
+
+h1{
+margin-bottom:20px;
+color:#333;
+}
+
+#question{
+font-size:18px;
+margin-bottom:15px;
+}
+
+.option{
+display:block;
+background:#f2f2f2;
+padding:10px;
+margin:8px 0;
+border-radius:5px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.option:hover{
+background:#dcdcdc;
+}
+
+button{
+margin-top:15px;
+padding:10px 20px;
+border:none;
+background:#667eea;
+color:white;
+font-size:16px;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:#4a5bdc;
+}
+
+#score{
+margin-top:15px;
+font-weight:bold;
+color:#444;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="quiz-container">
+
+<h1>Online Quiz</h1>
+
+<div id="question">Question appears here</div>
+
+<div id="options"></div>
+
+<button onclick="nextQuestion()">Next Question</button>
+
+<div id="score">Score: 0</div>
+
+</div>
+
+<script>
+
+const quiz = [
+{
+question:"What does HTML stand for?",
+options:["Hyper Text Markup Language","Home Tool Markup Language","Hyperlinks Text Mark Language","Hyper Tool Multi Language"],
+answer:0
+},
+
+{
+question:"Which language is used for styling web pages?",
+options:["HTML","JQuery","CSS","XML"],
+answer:2
+},
+
+{
+question:"Which language is used for web apps?",
+options:["Java","Python","JavaScript","All of the above"],
+answer:3
+},
+
+{
+question:"Inside which HTML element do we put JavaScript?",
+options:["<js>","<javascript>","<script>","<code>"],
+answer:2
+}
+
+];
+
+let currentQuestion = 0;
+let score = 0;
+
+function loadQuestion(){
+
+let q = quiz[currentQuestion];
+
+document.getElementById("question").innerText = q.question;
+
+let optionsHTML = "";
+
+for(let i=0;i<q.options.length;i++){
+
+optionsHTML += `<div class="option" onclick="selectAnswer(${i})">${q.options[i]}</div>`;
+
+}
+
+document.getElementById("options").innerHTML = optionsHTML;
+
+}
+
+function selectAnswer(selected){
+
+let correct = quiz[currentQuestion].answer;
+
+if(selected === correct){
+score++;
+}
+
+document.getElementById("score").innerText = "Score: " + score;
+
+}
+
+function nextQuestion(){
+
+currentQuestion++;
+
+if(currentQuestion < quiz.length){
+loadQuestion();
+}
+else{
+document.querySelector(".quiz-container").innerHTML =
+"<h2>Quiz Completed</h2><p>Your Final Score: "+score+"</p>";
+}
+
+}
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>
