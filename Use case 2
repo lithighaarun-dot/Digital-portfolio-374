@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Search Interface with Live Filtering</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+background: linear-gradient(to right,#6a11cb,#2575fc);
+margin:0;
+padding:0;
+}
+
+.container{
+width:60%;
+margin:60px auto;
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+h1{
+text-align:center;
+color:#333;
+margin-bottom:20px;
+}
+
+#searchBox{
+width:100%;
+padding:12px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+margin-bottom:20px;
+}
+
+#searchBox:focus{
+outline:none;
+border-color:#2575fc;
+}
+
+ul{
+list-style:none;
+padding:0;
+}
+
+li{
+padding:12px;
+margin:8px 0;
+background:#f4f6ff;
+border-radius:6px;
+transition:0.3s;
+}
+
+li:hover{
+background:#dfe7ff;
+cursor:pointer;
+}
+
+.footer{
+text-align:center;
+margin-top:20px;
+color:#777;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Live Search Filter</h1>
+
+<input type="text" id="searchBox" placeholder="Search items...">
+
+<ul id="itemList">
+<li>Web Development</li>
+<li>Java Programming</li>
+<li>Python Basics</li>
+<li>Database Management</li>
+<li>Artificial Intelligence</li>
+<li>Machine Learning</li>
+<li>Cloud Computing</li>
+<li>Cyber Security</li>
+<li>Data Science</li>
+<li>Mobile App Development</li>
+</ul>
+
+<div class="footer">
+<p>Search Interface with Live Filtering</p>
+</div>
+
+</div>
+
+<script>
+
+let searchBox = document.getElementById("searchBox");
+let items = document.querySelectorAll("#itemList li");
+
+searchBox.addEventListener("keyup", function(){
+
+let filter = searchBox.value.toLowerCase();
+
+items.forEach(function(item){
+
+let text = item.textContent.toLowerCase();
+
+if(text.includes(filter)){
+item.style.display = "block";
+}
+else{
+item.style.display = "none";
+}
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
