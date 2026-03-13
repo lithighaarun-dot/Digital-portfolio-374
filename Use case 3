@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Real-Time Notification Widget</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+background:#e6f0ff;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.notification-box{
+background:white;
+padding:25px;
+width:320px;
+border-radius:12px;
+box-shadow:0px 6px 18px rgba(0,0,0,0.2);
+text-align:center;
+}
+
+h2{
+color:#333;
+}
+
+button{
+padding:10px 20px;
+border:none;
+background:#4CAF50;
+color:white;
+border-radius:6px;
+cursor:pointer;
+margin-top:10px;
+font-size:15px;
+}
+
+button:hover{
+background:#3c8c40;
+}
+
+#notification{
+margin-top:20px;
+padding:12px;
+border-radius:6px;
+display:none;
+font-weight:bold;
+color:white;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="notification-box">
+
+<h2>Notification Widget</h2>
+
+<button onclick="showNotification()">Show Notification</button>
+
+<div id="notification"></div>
+
+</div>
+
+<script>
+
+function showNotification(){
+
+var messages=[
+"📩 You received a new message!",
+"🔔 Reminder: Your meeting starts soon.",
+"🛒 Your order has been placed successfully.",
+"📢 New update available.",
+"👤 A new user joined your group.",
+"💬 You have a new chat message.",
+"📅 Event registration confirmed.",
+"⚠ System alert detected!"
+];
+
+var colors=[
+"#4CAF50",
+"#2196F3",
+"#FF9800",
+"#9C27B0",
+"#E91E63",
+"#3F51B5",
+"#009688",
+"#F44336"
+];
+
+var random=Math.floor(Math.random()*messages.length);
+
+var box=document.getElementById("notification");
+
+box.style.display="block";
+box.innerHTML=messages[random];
+box.style.backgroundColor=colors[random];
+
+}
+
+</script>
+
+</body>
+</html>
