@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Interactive Registration Form</title>
+
+<style>
+body{
+font-family: Arial;
+background:#f2f2f2;
+}
+
+.container{
+width:350px;
+margin:auto;
+margin-top:100px;
+padding:20px;
+background:white;
+border-radius:10px;
+box-shadow:0 0 10px gray;
+}
+
+h2{
+text-align:center;
+}
+
+input{
+width:100%;
+padding:10px;
+margin:8px 0;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+button{
+width:100%;
+padding:10px;
+background:blue;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:darkblue;
+}
+
+.error{
+color:red;
+font-size:14px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+<h2>Registration Form</h2>
+
+<form id="registerForm">
+
+<label>Name</label>
+<input type="text" id="name">
+<div class="error" id="nameError"></div>
+
+<label>Email</label>
+<input type="text" id="email">
+<div class="error" id="emailError"></div>
+
+<label>Password</label>
+<input type="password" id="password">
+<div class="error" id="passwordError"></div>
+
+<button type="submit">Register</button>
+
+</form>
+</div>
+
+<script>
+
+document.getElementById("registerForm").addEventListener("submit", function(event){
+
+event.preventDefault();
+
+let name=document.getElementById("name").value;
+let email=document.getElementById("email").value;
+let password=document.getElementById("password").value;
+
+let valid=true;
+
+document.getElementById("nameError").innerHTML="";
+document.getElementById("emailError").innerHTML="";
+document.getElementById("passwordError").innerHTML="";
+
+if(name===""){
+document.getElementById("nameError").innerHTML="Name is required";
+valid=false;
+}
+
+let emailPattern=/^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+if(!email.match(emailPattern)){
+document.getElementById("emailError").innerHTML="Enter valid email";
+valid=false;
+}
+
+if(password.length<6){
+document.getElementById("passwordError").innerHTML="Password must be at least 6 characters";
+valid=false;
+}
+
+if(valid){
+alert("Registration Successful!");
+}
+
+});
+
+</script>
+
+</body>
+</html>
