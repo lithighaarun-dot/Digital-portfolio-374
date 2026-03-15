@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Responsive Product Display Grid</title>
+
+<style>
+
+body{
+font-family: Arial;
+margin:0;
+background:#f4f4f4;
+}
+
+h1{
+text-align:center;
+background:#333;
+color:white;
+padding:20px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+padding:20px;
+}
+
+.card{
+background:white;
+padding:15px;
+border-radius:8px;
+text-align:center;
+box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+.card img{
+width:100%;
+height:150px;
+border-radius:8px;
+}
+
+.card h3{
+margin:10px 0;
+}
+
+.price{
+color:green;
+font-weight:bold;
+}
+
+button{
+background:#007BFF;
+color:white;
+border:none;
+padding:8px 12px;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:#0056b3;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Product Catalog</h1>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://via.placeholder.com/200" alt="Headphones">
+<h3>Wireless Headphones</h3>
+<p class="price">₹1999</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/200" alt="Smart Watch">
+<h3>Smart Watch</h3>
+<p class="price">₹2499</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/200" alt="Speaker">
+<h3>Bluetooth Speaker</h3>
+<p class="price">₹1499</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/200" alt="Mouse">
+<h3>Gaming Mouse</h3>
+<p class="price">₹899</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/200" alt="Keyboard">
+<h3>USB Keyboard</h3>
+<p class="price">₹699</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/200" alt="Laptop Stand">
+<h3>Laptop Stand</h3>
+<p class="price">₹799</p>
+<button>Add to Cart</button>
+</div>
+
+</div>
+
+</body>
+</html>
