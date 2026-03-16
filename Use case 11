@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Image Upload and Preview</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #6dd5ed, #2193b0);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    width: 350px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+h2{
+    margin-bottom: 20px;
+    color: #333;
+}
+
+input[type="file"]{
+    display: none;
+}
+
+.upload-btn{
+    background-color: #2193b0;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.upload-btn:hover{
+    background-color: #176d82;
+}
+
+#preview{
+    margin-top: 20px;
+    width: 250px;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    display: none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Image Upload and Preview</h2>
+
+<label for="fileInput" class="upload-btn">Choose Image</label>
+
+<input type="file" id="fileInput" accept="image/*">
+
+<br>
+
+<img id="preview">
+
+</div>
+
+<script>
+
+document.getElementById("fileInput").addEventListener("change", function(){
+
+    const file = this.files[0];
+
+    if(file){
+
+        const reader = new FileReader();
+
+        reader.onload = function(e){
+            const preview = document.getElementById("preview");
+            preview.src = e.target.result;
+            preview.style.display = "block";
+        }
+
+        reader.readAsDataURL(file);
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
