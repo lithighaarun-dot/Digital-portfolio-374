@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Real-Time Chat UI</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#f2f2f2;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.chat-container{
+width:350px;
+background:white;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.2);
+display:flex;
+flex-direction:column;
+}
+
+.chat-header{
+background:#4CAF50;
+color:white;
+padding:15px;
+text-align:center;
+font-size:18px;
+border-top-left-radius:10px;
+border-top-right-radius:10px;
+}
+
+.chat-box{
+height:300px;
+padding:10px;
+overflow-y:auto;
+border-bottom:1px solid #ccc;
+}
+
+.message{
+background:#e1ffc7;
+padding:8px 12px;
+margin:5px;
+border-radius:10px;
+width:fit-content;
+}
+
+.input-area{
+display:flex;
+padding:10px;
+}
+
+input{
+flex:1;
+padding:8px;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+button{
+padding:8px 12px;
+margin-left:5px;
+background:#4CAF50;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:#45a049;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="chat-container">
+
+<div class="chat-header">
+Live Chat
+</div>
+
+<div class="chat-box" id="chatBox">
+</div>
+
+<div class="input-area">
+<input type="text" id="messageInput" placeholder="Type a message">
+<button onclick="sendMessage()">Send</button>
+</div>
+
+</div>
+
+<script>
+
+function sendMessage(){
+
+var input=document.getElementById("messageInput");
+var message=input.value;
+
+if(message.trim()!==""){
+
+var chatBox=document.getElementById("chatBox");
+
+var msg=document.createElement("div");
+msg.className="message";
+msg.textContent=message;
+
+chatBox.appendChild(msg);
+
+chatBox.scrollTop=chatBox.scrollHeight;
+
+input.value="";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
