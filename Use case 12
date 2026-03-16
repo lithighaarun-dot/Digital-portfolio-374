@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>News Feed Dashboard</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+background:#f2f2f2;
+margin:0;
+padding:20px;
+}
+
+h1{
+text-align:center;
+color:#333;
+margin-bottom:20px;
+}
+
+.news-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.news-card{
+background:white;
+border-radius:10px;
+box-shadow:0 4px 8px rgba(0,0,0,0.1);
+overflow:hidden;
+transition:0.3s;
+}
+
+.news-card:hover{
+transform:scale(1.05);
+}
+
+.news-card img{
+width:100%;
+height:160px;
+object-fit:cover;
+}
+
+.news-content{
+padding:15px;
+}
+
+.category{
+background:#007bff;
+color:white;
+padding:4px 8px;
+font-size:12px;
+border-radius:4px;
+}
+
+.news-title{
+font-size:18px;
+font-weight:bold;
+margin-top:10px;
+}
+
+.news-desc{
+font-size:14px;
+color:#555;
+margin-top:8px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>News Feed Dashboard</h1>
+
+<div class="news-container" id="newsContainer"></div>
+
+<script>
+
+const newsData = [
+
+{
+title:"Technology Innovation",
+category:"Technology",
+image:"https://via.placeholder.com/300x160",
+description:"New AI technology is helping businesses automate tasks and improve productivity."
+},
+
+{
+title:"Sports Championship",
+category:"Sports",
+image:"https://via.placeholder.com/300x160",
+description:"The national football championship ended with an exciting final match."
+},
+
+{
+title:"Business Market Update",
+category:"Business",
+image:"https://via.placeholder.com/300x160",
+description:"Stock markets showed positive growth after the latest economic report."
+},
+
+{
+title:"Health Awareness",
+category:"Health",
+image:"https://via.placeholder.com/300x160",
+description:"Doctors encourage people to exercise daily and maintain healthy food habits."
+},
+
+{
+title:"Education Reforms",
+category:"Education",
+image:"https://via.placeholder.com/300x160",
+description:"Government introduces new digital learning platforms for students."
+},
+
+{
+title:"Environmental News",
+category:"Environment",
+image:"https://via.placeholder.com/300x160",
+description:"Global initiatives are increasing to protect forests and wildlife."
+}
+
+];
+
+const container = document.getElementById("newsContainer");
+
+newsData.forEach(news => {
+
+const card = document.createElement("div");
+card.className="news-card";
+
+card.innerHTML = `
+<img src="${news.image}">
+<div class="news-content">
+<span class="category">${news.category}</span>
+<div class="news-title">${news.title}</div>
+<div class="news-desc">${news.description}</div>
+</div>
+`;
+
+container.appendChild(card);
+
+});
+
+</script>
+
+</body>
+</html>
