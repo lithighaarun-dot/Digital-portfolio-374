@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>FAQ Expand/Collapse</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f4f4;
+}
+
+h1{
+    text-align:center;
+}
+
+.container{
+    width:60%;
+    margin:auto;
+    margin-top:40px;
+}
+
+.faq{
+    background:white;
+    border-radius:8px;
+    margin-bottom:10px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.2);
+}
+
+.question{
+    padding:15px;
+    cursor:pointer;
+    font-weight:bold;
+    background:#3498db;
+    color:white;
+    border-radius:8px;
+}
+
+.question:hover{
+    background:#2980b9;
+}
+
+.answer{
+    padding:15px;
+    display:none;
+    border-top:1px solid #ddd;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Frequently Asked Questions</h1>
+
+<div class="container">
+
+<div class="faq">
+<div class="question">What is HTML?</div>
+<div class="answer">HTML stands for HyperText Markup Language. It is used to create the structure of web pages.</div>
+</div>
+
+<div class="faq">
+<div class="question">What is CSS?</div>
+<div class="answer">CSS stands for Cascading Style Sheets. It is used to style and design web pages.</div>
+</div>
+
+<div class="faq">
+<div class="question">What is JavaScript?</div>
+<div class="answer">JavaScript is a programming language used to make web pages interactive.</div>
+</div>
+
+<div class="faq">
+<div class="question">Why use FAQ section?</div>
+<div class="answer">FAQ sections help users quickly find answers to common questions without contacting support.</div>
+</div>
+
+</div>
+
+<script>
+
+var questions = document.getElementsByClassName("question");
+
+for (var i = 0; i < questions.length; i++) {
+    questions[i].addEventListener("click", function() {
+        var answer = this.nextElementSibling;
+
+        if (answer.style.display === "block") {
+            answer.style.display = "none";
+        } else {
+            answer.style.display = "block";
+        }
+    });
+}
+
+</script>
+
+</body>
+</html>
