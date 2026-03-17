@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Multi Step Form Wizard</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#f2f2f2;
+}
+
+.container{
+width:400px;
+margin:50px auto;
+background:white;
+padding:25px;
+border-radius:8px;
+box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+h2{
+text-align:center;
+}
+
+.step{
+display:none;
+}
+
+input{
+width:100%;
+padding:10px;
+margin:8px 0;
+border:1px solid #ccc;
+border-radius:4px;
+}
+
+button{
+padding:10px 20px;
+border:none;
+border-radius:5px;
+background:#007BFF;
+color:white;
+cursor:pointer;
+}
+
+button:hover{
+background:#0056b3;
+}
+
+.btn-group{
+display:flex;
+justify-content:space-between;
+margin-top:10px;
+}
+
+.progress{
+display:flex;
+justify-content:space-between;
+margin-bottom:20px;
+}
+
+.circle{
+width:30px;
+height:30px;
+border-radius:50%;
+background:#ccc;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+}
+
+.circle.active{
+background:#007BFF;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Registration Form</h2>
+
+<div class="progress">
+<div class="circle active">1</div>
+<div class="circle">2</div>
+<div class="circle">3</div>
+</div>
+
+<form id="form">
+
+<!-- Step 1 -->
+<div class="step" style="display:block">
+<h3>Personal Info</h3>
+
+<input type="text" placeholder="First Name" required>
+<input type="text" placeholder="Last Name" required>
+
+<div class="btn-group">
+<button type="button" onclick="nextStep()">Next</button>
+</div>
+
+</div>
+
+<!-- Step 2 -->
+<div class="step">
+<h3>Contact Info</h3>
+
+<input type="email" placeholder="Email" required>
+<input type="text" placeholder="Phone Number" required>
+
+<div class="btn-group">
+<button type="button" onclick="prevStep()">Previous</button>
+<button type="button" onclick="nextStep()">Next</button>
+</div>
+
+</div>
+
+<!-- Step 3 -->
+<div class="step">
+<h3>Account Setup</h3>
+
+<input type="text" placeholder="Username" required>
+<input type="password" placeholder="Password" required>
+
+<div class="btn-group">
+<button type="button" onclick="prevStep()">Previous</button>
+<button type="submit">Submit</button>
+</div>
+
+</div>
+
+</form>
+
+</div>
+
+<script>
+
+let currentStep = 0;
+
+let steps = document.querySelectorAll(".step");
+let circles = document.querySelectorAll(".circle");
+
+function showStep(){
+
+steps.forEach((step,index)=>{
+step.style.display = index === currentStep ? "block" : "none";
+});
+
+circles.forEach((circle,index)=>{
+circle.classList.toggle("active", index <= currentStep);
+});
+
+}
+
+function nextStep(){
+
+if(currentStep < steps.length - 1){
+currentStep++;
+showStep();
+}
+
+}
+
+function prevStep(){
+
+if(currentStep > 0){
+currentStep--;
+showStep();
+}
+
+}
+
+document.getElementById("form").addEventListener("submit",function(e){
+e.preventDefault();
+alert("Form Submitted Successfully!");
+});
+
+</script>
+
+</body>
+</html>
