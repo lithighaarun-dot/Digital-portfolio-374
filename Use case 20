@@ -1,0 +1,199 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Front-End Web Development</title><style>
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  background:#f5f7fa;
+}
+
+/* NAVBAR */
+nav{
+  background:#111;
+  color:#fff;
+  display:flex;
+  justify-content:space-between;
+  padding:15px 30px;
+}
+
+nav h1{
+  font-size:22px;
+}
+
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:20px;
+}
+
+nav ul li{
+  cursor:pointer;
+}
+
+nav ul li:hover{
+  color:#00adb5;
+}
+
+/* HERO */
+.hero{
+  height:90vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#00adb5,#393e46);
+  color:white;
+  text-align:center;
+}
+
+.hero h2{
+  font-size:40px;
+  margin-bottom:10px;
+}
+
+.hero p{
+  font-size:18px;
+}
+
+.hero button{
+  margin-top:20px;
+  padding:10px 20px;
+  border:none;
+  background:#fff;
+  color:#111;
+  cursor:pointer;
+  border-radius:5px;
+}
+
+/* DASHBOARD */
+.dashboard{
+  padding:40px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card h3{
+  margin-bottom:10px;
+}
+
+/* FORM */
+.form-section{
+  padding:40px;
+}
+
+form{
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  max-width:400px;
+  margin:auto;
+}
+
+form input{
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+  border:1px solid #ccc;
+  border-radius:5px;
+}
+
+form button{
+  width:100%;
+  padding:10px;
+  border:none;
+  background:#00adb5;
+  color:white;
+  border-radius:5px;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:20px;
+  background:#111;
+  color:#fff;
+}
+</style></head><body><!-- NAVBAR --><nav>
+  <h1>My Website</h1>
+  <ul>
+    <li>Home</li>
+    <li>Dashboard</li>
+    <li>Profile</li>
+    <li>Contact</li>
+  </ul>
+</nav><!-- HERO --><section class="hero">
+  <h2>Welcome to Front-End Development</h2>
+  <p>Build modern responsive websites using HTML, CSS & JavaScript</p>
+  <button onclick="scrollToDashboard()">Get Started</button>
+</section><!-- DASHBOARD --><section class="dashboard" id="dashboard">
+  <h2>Dashboard</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Users</h3>
+      <p id="users">0</p>
+    </div>
+    <div class="card">
+      <h3>Tasks</h3>
+      <p id="tasks">0</p>
+    </div>
+    <div class="card">
+      <h3>Messages</h3>
+      <p id="messages">0</p>
+    </div>
+  </div>
+</section><!-- FORM --><section class="form-section">
+  <h2 style="text-align:center; margin-bottom:20px;">Register</h2>
+  <form onsubmit="return handleSubmit()">
+    <input type="text" id="name" placeholder="Enter Name" required>
+    <input type="email" id="email" placeholder="Enter Email" required>
+    <input type="password" id="password" placeholder="Enter Password" required>
+    <button type="submit">Register</button>
+  </form>
+</section><!-- FOOTER --><footer>
+  <p>© 2026 Front-End Project</p>
+</footer><script>
+// Scroll
+function scrollToDashboard(){
+  document.getElementById('dashboard').scrollIntoView({behavior:'smooth'});
+}
+
+// Fake Data Animation
+let users=0, tasks=0, messages=0;
+
+setInterval(()=>{
+  users += Math.floor(Math.random()*5);
+  tasks += Math.floor(Math.random()*3);
+  messages += Math.floor(Math.random()*4);
+
+  document.getElementById('users').innerText = users;
+  document.getElementById('tasks').innerText = tasks;
+  document.getElementById('messages').innerText = messages;
+},2000);
+
+// Form Submit
+function handleSubmit(){
+  const name = document.getElementById('name').value;
+  alert("Welcome " + name + "! Registration Successful");
+  return false;
+}
+</script></body>
+</html>
